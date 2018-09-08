@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 
 // Import Containers
 import RateQuoteQuery from './RateQuoteQuery';
+import RateQuotes from './RateQuotes';
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                 <div className="rateQuotes">
                     <div className="container">
                         <RateQuoteQuery/>
+                        <RateQuotes/>
                     </div>
                 </div>
                 <Footer/>
