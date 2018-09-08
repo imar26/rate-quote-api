@@ -1,0 +1,75 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+/* Common Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4d4d4d;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #0f3249;
+}
+
+/* Header */
+header {
+    padding: 25px 0;
+    border-bottom: 1px solid #ededed;
+}
+
+header img {
+    width: 100%;
+}
+
+header span {
+    color: #0f3249;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+    display: block;
+    text-align: right;
+}
+
+/* Rate Quotes */
+.rateQuotes {
+    min-height: 100vh;
+}
+
+/* Rate Quote Query */
+.rateQuoteQuery {
+    padding: 30px 0;
+}
+
+.subBtn {
+    width: 100%;
+    background-color: #252525;
+    color: #fff;
+}
+
+.subBtn:focus {
+    box-shadow: none;
+}
+
+.subBtn:hover {
+    background-color: #707070;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background-color: #0f3249;
+    padding: 10px 0;
+}
+
+footer span {
+    color: #fff;
+    display: block;
+    text-align: center;
+}
