@@ -11,5 +11,11 @@ export const mapDispatchToProps = (dispatch) => {
 }
 
 export const mapStateToProps = (state) => {
-    return {stories: state.stories, success: state.success}
+    return {
+        requestId: state.requestId,
+        error: state.error,
+        errorMessage: state.errorMessage,
+        quotes: state.quotes,
+        loading: state.loading
+    }
 }

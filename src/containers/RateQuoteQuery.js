@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 class RateQuoteQuery extends Component {
-    baseURL = 'https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod';
-
     constructor() {
         super();
 
@@ -28,7 +26,7 @@ class RateQuoteQuery extends Component {
 
         var self = this;
         
-        fetch(this.baseURL + '/ratequotes', {
+        fetch('https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/ratequotes', {
             method: 'POST',
             body: JSON.stringify(rateObj),
             headers: {
@@ -82,7 +80,7 @@ class RateQuoteQuery extends Component {
                                 Credit Score
                             </label>
                             <input type="number" ref="creditScore" className="form-control"
-                                required />
+                                min="300" max="800" required />
                         </div>
                         <div className="col-md-6 form-group">
                             <label>
@@ -98,7 +96,7 @@ class RateQuoteQuery extends Component {
                     </div>
                     <div className="row submitBtn">
                         <div className="offset-md-10 col-md-2 form-group">                            
-                            <input type="submit" value="Submit" className="btn subBtn" />
+                            <input type="submit" value="Quote Rates" className="btn subBtn" />
                         </div>
                         <span>{this.state.errorMessage}</span>
                     </div>

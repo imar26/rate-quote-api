@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 // Import Containers
 import Quote from './Quote';
 
-class RateQuotes extends Component {
-    baseURL = 'https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod';
-    
+class RateQuotes extends Component {    
     constructor() {
         super();
 
@@ -23,7 +21,7 @@ class RateQuotes extends Component {
         this.setState({
             loading: true
         })
-        fetch(this.baseURL + '/ratequotes?requestId='+requestId, {
+        fetch('https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/ratequotes?requestId='+requestId, {
             method: 'GET',
             headers: {
                 'Authorization': process.env.REACT_APP_API_KEY,
