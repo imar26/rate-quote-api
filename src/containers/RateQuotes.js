@@ -1,6 +1,49 @@
 import React, { Component } from 'react';
 
+// Import Containers
+import Quote from './Quote';
+
 class RateQuotes extends Component {
+    baseURL = 'https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod';
+    
+    constructor() {
+        super();
+
+        this.state = {
+            quotes: [],
+            loading: false
+        }
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.getQuotes(newProps.requestId);
+    }
+
+    getQuotes(requestId) {
+        this.setState({
+            loading: true
+        })
+        fetch(this.baseURL + '/ratequotes?requestId='+requestId, {
+            method: 'GET',
+            headers: {
+                'Authorization': process.env.REACT_APP_API_KEY,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {            
+            return response.json();
+        }).then(data => {
+            if(data.done === false) {
+                this.getQuotes(requestId);
+            } else {
+                this.setState({
+                    quotes: data.rateQuotes,
+                    loading: false
+                })
+            }
+        });
+    }
+
     render() {
         return (
             <div className="quotes table-responsive">
@@ -16,14 +59,7 @@ class RateQuotes extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>TFB Federal</td>
-                        <td>10/1 ARM</td>
-                        <td>4.125%</td>
-                        <td>$10,000</td>
-                        <td>$2,000</td>
-                        <td>4.375%</td>
-                    </tr>
+                    <Quote quotes={this.state.quotes} loading={this.state.loading} />
                 </tbody>
                 </table>
             </div>            

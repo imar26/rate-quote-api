@@ -14,8 +14,13 @@ import rootReducer from './reducers/rootReducer';
 // Import Mappers
 import { mapStateToProps, mapDispatchToProps } from './mappers';
 
+// For redux store
 import { Provider, connect } from 'react-redux';
 import { createStore } from 'redux';
+
+// For ENV Variables (API_KEY)
+import dotenv from 'dotenv';
+dotenv.config()
 
 let store = createStore(rootReducer);
 
