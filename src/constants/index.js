@@ -1,1 +1,3 @@
 export const SET_REQUEST_ID = 'SET_REQUEST_ID';
+export const DISPLAY_MESSAGE = 'DISPLAY_MESSAGE';
+export const HIDE_MESSAGE = 'HIDE_MESSAGE';

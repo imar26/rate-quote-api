@@ -28,7 +28,7 @@ class RateQuoteQuery extends Component {
             method: 'POST',
             body: JSON.stringify(rateObj),
             headers: {
-                // 'Authorization': process.env.REACT_APP_API_KEY,
+                'Authorization': process.env.REACT_APP_API_KEY,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
@@ -38,10 +38,11 @@ class RateQuoteQuery extends Component {
             if(data.requestId) {
                 this.props.setRequestId(data.requestId);
             } else {
-                this.setState({
-                    error: true,
-                    errorMessage: data.errors[0]
-                })
+                this.props.displayMessage(data.errors[0]);
+
+                setTimeout(() => {
+                    this.props.hideMessage();
+                }, 2500);
             }
         });
 
@@ -96,7 +97,7 @@ class RateQuoteQuery extends Component {
                         <div className="offset-md-10 col-md-2 form-group">                            
                             <input type="submit" value="Quote Rates" className="btn subBtn" />
                         </div>
-                        <span>{this.state.errorMessage}</span>
+                        <span>{this.props.errorMessage}</span>
                     </div>
                 </form>
             </div>

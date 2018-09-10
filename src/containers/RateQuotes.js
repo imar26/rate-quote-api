@@ -57,7 +57,7 @@ class RateQuotes extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <Quote quotes={this.state.quotes} loading={this.state.loading} />
+                    {/* <Quote quotes={this.state.quotes} loading={this.state.loading} /> */}
                 </tbody>
                 </table>
             </div>            

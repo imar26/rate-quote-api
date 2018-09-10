@@ -14,9 +14,18 @@ const rootReducer = (state = {
             return {
                 requestId: action.requestId
             }
-        // Show success message on adding story to the list
-        // case constants.HIDE_MESSAGE:
-        //     return {stories: state.stories, success: false}
+        // Display Error Message
+        case constants.DISPLAY_MESSAGE:
+            return {
+                error: true,
+                errorMessage: action.errorMessage
+            }
+        // Hide Error Message
+        case constants.HIDE_MESSAGE:
+            return {
+                error: false,
+                errorMessage: ''
+            }
         default:
             return state;
     }

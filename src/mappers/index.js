@@ -4,7 +4,8 @@ import * as actions from '../actions';
 export const mapDispatchToProps = (dispatch) => {
     return {
         setRequestId: (requestId) => actions.setRequestId(dispatch, requestId),
-        // hideMessage: () => actions.hideMessage(dispatch)
+        displayMessage: (message) => actions.displayMessage(dispatch, message),
+        hideMessage: () => actions.hideMessage(dispatch)
     }
 }
 
