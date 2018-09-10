@@ -85,7 +85,7 @@ class RateQuoteQuery extends Component {
                         </div>
                     </div>
                     <div className="row submitBtn">
-                        <div className="offset-md-10 col-md-2 form-group">                            
+                        <div className="offset-lg-10 offset-md-9 col-lg-2 col-md-3 form-group">                            
                             <input type="submit" value="Quote Rates" className="btn subBtn" />
                         </div>
                         <span>{this.props.errorMessage}</span>

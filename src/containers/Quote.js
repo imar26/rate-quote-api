@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Quote extends Component {
     render() {
-        if(this.props.quotes && this.props.loading === false && this.props.quotes.length < 1) {
+        if(this.props.quotes && this.props.quotes.length < 1) {
             return <tr className="no-results"><td colSpan="6">No Results Found</td></tr>
         } else if(this.props.quotes && this.props.loading === false) {
             return( 
@@ -12,12 +12,12 @@ class Quote extends Component {
                         <td>{quote.loanType}</td>
                         <td>{quote.interestRate}%</td>
                         <td>${quote.closingCosts}</td>
-                        <td>${quote.monthlyPayment.toFixed(2)}</td>
-                        <td>{quote.apr.toFixed(3)}%</td>
+                        <td className="desktop">${quote.monthlyPayment.toFixed(2)}</td>
+                        <td className="desktop">{quote.apr.toFixed(3)}%</td>
                     </tr>
                 })
             )     
-        } else {
+        } else if(this.props.loading === true) {
             return <tr className="loading"><td colSpan="6"><div id="circularG">
             <div id="circularG_1" className="circularG"></div>
             <div id="circularG_2" className="circularG"></div>
@@ -28,6 +28,8 @@ class Quote extends Component {
             <div id="circularG_7" className="circularG"></div>
             <div id="circularG_8" className="circularG"></div>
             </div></td></tr>
+        } else {
+            return null
         }
     }
 }

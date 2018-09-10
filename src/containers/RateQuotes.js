@@ -40,8 +40,8 @@ class RateQuotes extends Component {
                         <th scope="col">Product</th>
                         <th scope="col">Rate</th>
                         <th scope="col">Closing Costs</th>
-                        <th scope="col">Monthly Payment</th>
-                        <th scope="col">APR</th>
+                        <th className="desktop" scope="col">Monthly Payment</th>
+                        <th className="desktop" scope="col">APR</th>
                     </tr>
                 </thead>
                 <tbody>
