@@ -23,24 +23,22 @@ class RateQuoteQuery extends Component {
             creditScore: creditScore,
             occupancy: occupancy
         };
-
-        var self = this;
         
         fetch('https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/ratequotes', {
             method: 'POST',
             body: JSON.stringify(rateObj),
             headers: {
-                'Authorization': process.env.REACT_APP_API_KEY,
+                // 'Authorization': process.env.REACT_APP_API_KEY,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }).then(function(response) {
+        }).then(response => {
             return response.json();
-        }).then(function(data) {
+        }).then(data => {
             if(data.requestId) {
-                self.props.requestId(data.requestId)
+                this.props.setRequestId(data.requestId);
             } else {
-                self.setState({
+                this.setState({
                     error: true,
                     errorMessage: data.errors[0]
                 })

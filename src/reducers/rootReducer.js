@@ -9,18 +9,14 @@ const rootReducer = (state = {
     loading: false
 }, action) => {
     switch (action.type) {
-        // Add story to the list
-        case constants.ADD_STORY:
+        // Set Request Id
+        case constants.SET_REQUEST_ID:
             return {
-                stories: [
-                    ...state.stories,
-                    action.story
-                ],
-                success: true
+                requestId: action.requestId
             }
         // Show success message on adding story to the list
-        case constants.HIDE_MESSAGE:
-            return {stories: state.stories, success: false}
+        // case constants.HIDE_MESSAGE:
+        //     return {stories: state.stories, success: false}
         default:
             return state;
     }

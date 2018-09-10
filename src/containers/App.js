@@ -9,30 +9,14 @@ import RateQuoteQuery from './RateQuoteQuery';
 import RateQuotes from './RateQuotes';
 
 class App extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            requestId: ''
-        }
-
-        this.setRequestId = this.setRequestId.bind(this);
-    }
-
-    setRequestId(requestId) {
-        this.setState({
-            requestId: requestId
-        })
-    }
-
     render() {
         return (
             <div>
                 <Header/>
                 <div className="rateQuotes">
                     <div className="container">
-                        <RateQuoteQuery requestId={this.setRequestId} />
-                        <RateQuotes requestId={this.state.requestId} />
+                        <RateQuoteQuery setRequestId={this.props.setRequestId} />
+                        <RateQuotes requestId={this.props.requestId} />
                     </div>
                 </div>
                 <Footer/>
