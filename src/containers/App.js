@@ -19,7 +19,11 @@ class App extends Component {
                             displayMessage={this.props.displayMessage}
                             hideMessage={this.props.hideMessage}
                             errorMessage={this.props.errorMessage} />
-                        <RateQuotes requestId={this.props.requestId} />
+                        <RateQuotes requestId={this.props.requestId}
+                            enableLoading={this.props.enableLoading}
+                            setQuotes={this.props.setQuotes}
+                            loading={this.props.loading}
+                            quotes={this.props.quotes} />
                     </div>
                 </div>
                 <Footer/>

@@ -26,6 +26,17 @@ const rootReducer = (state = {
                 error: false,
                 errorMessage: ''
             }
+        // Enable Loader
+        case constants.ENABLE_LOADING:
+            return {
+                loading: true
+            }
+        // Set Quotes and disable loader
+        case constants.SET_QUOTES:
+            return {
+                loading: false,
+                quotes: action.quotes
+            }
         default:
             return state;
     }

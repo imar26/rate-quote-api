@@ -4,23 +4,14 @@ import React, { Component } from 'react';
 import Quote from './Quote';
 
 class RateQuotes extends Component {    
-    constructor() {
-        super();
-
-        this.state = {
-            quotes: [],
-            loading: false
+    componentWillReceiveProps(newProps) {
+        if(newProps.requestId) {
+            this.getQuotes(newProps.requestId);                
         }
     }
 
-    componentWillReceiveProps(newProps) {
-        this.getQuotes(newProps.requestId);
-    }
-
     getQuotes(requestId) {
-        this.setState({
-            loading: true
-        })
+        this.props.enableLoading();     
         fetch('https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/ratequotes?requestId='+requestId, {
             method: 'GET',
             headers: {
@@ -33,11 +24,8 @@ class RateQuotes extends Component {
         }).then(data => {
             if(data.done === false) {
                 this.getQuotes(requestId);
-            } else {
-                this.setState({
-                    quotes: data.rateQuotes,
-                    loading: false
-                })
+            } else if(data.done === true) {
+                this.props.setQuotes(data.rateQuotes);
             }
         });
     }
@@ -57,7 +45,7 @@ class RateQuotes extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* <Quote quotes={this.state.quotes} loading={this.state.loading} /> */}
+                    <Quote quotes={this.props.quotes} loading={this.props.loading} />
                 </tbody>
                 </table>
             </div>            

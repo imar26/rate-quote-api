@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 
 class RateQuoteQuery extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            error: false,
-            errorMessage: ''
-        }
-    }
-
     postQuery(event) {
         event.preventDefault();
         var loanSize = parseInt(this.refs.loanSize.value, 10);

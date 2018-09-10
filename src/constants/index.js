@@ -1,3 +1,5 @@
 export const SET_REQUEST_ID = 'SET_REQUEST_ID';
 export const DISPLAY_MESSAGE = 'DISPLAY_MESSAGE';
 export const HIDE_MESSAGE = 'HIDE_MESSAGE';
+export const ENABLE_LOADING = 'ENABLE_LOADING';
+export const SET_QUOTES = 'SET_QUOTES';

@@ -13,10 +13,10 @@ export const hideMessage = (dispatch) => {
     return (dispatch({type: constants.HIDE_MESSAGE}))
 }
 
-// export const incrementCount = (dispatch, storyId) => {
-//     return (dispatch({type: constants.INCREMENT, id: storyId}))
-// }
+export const enableLoading = (dispatch) => {
+    return (dispatch({type: constants.ENABLE_LOADING}))
+}
 
-// export const decrementCount = (dispatch, storyId) => {
-//     return (dispatch({type: constants.DECREMENT, id: storyId}))
-// }
+export const setQuotes = (dispatch, quotes) => {
+    return (dispatch({type: constants.SET_QUOTES, quotes: quotes}))
+}
