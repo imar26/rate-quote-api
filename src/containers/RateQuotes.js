@@ -23,7 +23,9 @@ class RateQuotes extends Component {
             return response.json();
         }).then(data => {
             if(data.done === false) {
-                this.getQuotes(requestId);
+                setTimeout(() => {
+                    this.getQuotes(requestId);
+                }, 1000);
             } else if(data.done === true) {
                 this.props.setQuotes(data.rateQuotes);
             }
