@@ -2,20 +2,9 @@ import React, { Component } from 'react';
 
 class Quote extends Component {
     render() {
-        if(typeof(this.props.loading) === 'undefined' || this.props.loading === true) {
-            return <tr className="loading"><td colSpan="6"><div id="circularG">
-            <div id="circularG_1" className="circularG"></div>
-            <div id="circularG_2" className="circularG"></div>
-            <div id="circularG_3" className="circularG"></div>
-            <div id="circularG_4" className="circularG"></div>
-            <div id="circularG_5" className="circularG"></div>
-            <div id="circularG_6" className="circularG"></div>
-            <div id="circularG_7" className="circularG"></div>
-            <div id="circularG_8" className="circularG"></div>
-            </div></td></tr>
-        } else if(this.props.quotes && this.props.quotes.length < 1) {
+        if(this.props.quotes && this.props.loading === false && this.props.quotes.length < 1) {
             return <tr className="no-results"><td colSpan="6">No Results Found</td></tr>
-        } else {
+        } else if(this.props.quotes && this.props.loading === false) {
             return( 
                 this.props.quotes.map((quote, i) => {
                     return <tr key={i}>
@@ -28,6 +17,17 @@ class Quote extends Component {
                     </tr>
                 })
             )     
+        } else {
+            return <tr className="loading"><td colSpan="6"><div id="circularG">
+            <div id="circularG_1" className="circularG"></div>
+            <div id="circularG_2" className="circularG"></div>
+            <div id="circularG_3" className="circularG"></div>
+            <div id="circularG_4" className="circularG"></div>
+            <div id="circularG_5" className="circularG"></div>
+            <div id="circularG_6" className="circularG"></div>
+            <div id="circularG_7" className="circularG"></div>
+            <div id="circularG_8" className="circularG"></div>
+            </div></td></tr>
         }
     }
 }
