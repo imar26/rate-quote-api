@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 class RateQuoteQuery extends Component {
+    // Function gets called when user submits the form
     postQuery(event) {
         event.preventDefault();
+        // Get user input values
         var loanSize = parseInt(this.refs.loanSize.value, 10);
         var propertyType = this.refs.propertyType.value;
         var creditScore = parseInt(this.refs.creditScore.value, 10);
@@ -14,7 +16,8 @@ class RateQuoteQuery extends Component {
             creditScore: creditScore,
             occupancy: occupancy
         };
-        
+
+        // Post API request to generate Request Id
         fetch('https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/ratequotes', {
             method: 'POST',
             body: JSON.stringify(rateObj),
@@ -27,16 +30,20 @@ class RateQuoteQuery extends Component {
             return response.json();
         }).then(data => {
             if(data.requestId) {
+                // If you get id, set the value in redux store
                 this.props.setRequestId(data.requestId);
             } else {
+                // If errors, display them
                 this.props.displayMessage(data.errors[0]);
 
+                // Hide error after 2.5 sec
                 setTimeout(() => {
                     this.props.hideMessage();
                 }, 2500);
             }
         });
 
+        // Reset the form
         event.target.reset();
     }
     render() {

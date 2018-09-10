@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 
 class Quote extends Component {
     render() {
+        // If there are no quotes
         if(this.props.quotes && this.props.quotes.length < 1) {
             return <tr className="no-results"><td colSpan="6">No Results Found</td></tr>
+        // Display rate quotes
         } else if(this.props.quotes && this.props.loading === false) {
             return( 
                 this.props.quotes.map((quote, i) => {
@@ -16,7 +18,8 @@ class Quote extends Component {
                         <td className="desktop">{quote.apr.toFixed(3)}%</td>
                     </tr>
                 })
-            )     
+            )   
+        // If loader is enabled  
         } else if(this.props.loading === true) {
             return <tr className="loading"><td colSpan="6"><div id="circularG">
             <div id="circularG_1" className="circularG"></div>

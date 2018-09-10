@@ -5,13 +5,16 @@ import Quote from './Quote';
 
 class RateQuotes extends Component {    
     componentWillReceiveProps(newProps) {
+        // If request id received, fetch the rate quotes
         if(newProps.requestId) {
             this.getQuotes(newProps.requestId);                
         }
     }
 
     getQuotes(requestId) {
-        this.props.enableLoading();     
+        // Enable loader
+        this.props.enableLoading(); 
+        // Get API request to fetch the rate quotes    
         fetch('https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/ratequotes?requestId='+requestId, {
             method: 'GET',
             headers: {
@@ -23,10 +26,12 @@ class RateQuotes extends Component {
             return response.json();
         }).then(data => {
             if(data.done === false) {
+                // Recursively make API calls till the time done property changes its value to true
                 setTimeout(() => {
                     this.getQuotes(requestId);
                 }, 1000);
             } else if(data.done === true) {
+                // Once the value is set to true, set the quotes in redux store
                 this.props.setQuotes(data.rateQuotes);
             }
         });

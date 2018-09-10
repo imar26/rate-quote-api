@@ -15,10 +15,12 @@ class App extends Component {
                 <Header/>
                 <div className="rateQuotes">
                     <div className="container">
+                        {/* Query Form */}
                         <RateQuoteQuery setRequestId={this.props.setRequestId}
                             displayMessage={this.props.displayMessage}
                             hideMessage={this.props.hideMessage}
                             errorMessage={this.props.errorMessage} />
+                        {/* List of Rate Quotes */}
                         <RateQuotes requestId={this.props.requestId}
                             enableLoading={this.props.enableLoading}
                             setQuotes={this.props.setQuotes}
