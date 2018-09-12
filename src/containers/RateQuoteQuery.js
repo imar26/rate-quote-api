@@ -48,7 +48,7 @@ class RateQuoteQuery extends Component {
     }
     render() {
         return (
-            <div className="rateQuoteQuery">
+            <div id="query" className="rateQuoteQuery">
                 <form method="POST" onSubmit={this.postQuery.bind(this)}>
                     <div className="row">
                         <div className="col-md-6 form-group">

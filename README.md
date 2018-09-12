@@ -46,8 +46,19 @@ npm start
 
 2. Click on Quote Rates button
 
+### Running Test Cases
+
+```sh
+npm test
+```
+
 ### Technologies Used
 
 * React JS
 * Redux
 * API
+
+### Libraries Used
+
+* `bootstrap` - Used bootstrap to utilize the grid structure and makes it easy to make your application responsive
+* `dotenv` - Use config variables secretly without exposing it to the outside world
